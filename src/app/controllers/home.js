@@ -1,4 +1,4 @@
-const desserts = require("../data.json");
+const desserts = require("../../lib/data.json");
 
 
 // Home page
