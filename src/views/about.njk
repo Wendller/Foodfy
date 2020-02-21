@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Foodfy - Sobre</title>
+
+{% endblock %}
+
+{% block sheet %}
+  <link rel="stylesheet" href="/foodesign.css">
+{% endblock %}
+
+{% block content %}
+
+
+    <div id="sobre-foodfy">
+      <h1>{{ about.title }}</h1>
+    </div>
+    
+    <div id="text-one">
+      <p>
+        {{ about.text_one }}
+      </p>
+    </div>
+
+    <div id="comecou">
+      <h2>{{ about.begin }}</h2>
+    </div>
+
+    <div id="text-two">
+      <p>
+        {{ about.text_two }} 
+      </p>
+    </div>
+
+    <div id="nossas-receitas">
+      <h2>{{ about.our_foods }}</h2>
+    </div>
+
+    <div id="text-three">
+      <p>
+        {{ about.text_three }}
+      </p>
+    </div>
+
+
+    <footer class="footer">
+      <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
+    </footer>
+
+
+{% endblock %}
+    
+
+    

@@ -1,0 +1,13 @@
+{% extends "foodtest.njk" %}
+
+{% block head %}
+  <title>Foodfy - {{ recipe.title }}</title>
+  <link rel="stylesheet" href="/css/foodNew.css">
+{% endblock %}
+
+
+{% block button %}
+  <div class="editar">
+    <a id="editar" href="/admin/recipes/{{ recipe.id }}/edit">Editar receita</a>
+  </div>
+{% endblock %}

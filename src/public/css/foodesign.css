@@ -1,0 +1,342 @@
+/*=== MENU === */
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+  color: #111111;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.menu {
+  position: relative;
+}
+
+#foodfy {
+  color: #444444;
+  width: 90.6px;
+  height: 26.9;
+  margin-left: 231px;
+  position: absolute;
+  top: 36.1px;
+  font-family: 'Cochin';
+  font-size: 28px;
+  letter-spacing: 1.65px;
+  text-decoration: none;
+}
+
+#sobre {
+  color: #111111;
+  width: 42px;
+  height: 19px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin-left: 444px;
+  position: absolute;
+  top: 38px;
+  text-decoration: none;
+}
+
+#receitas {
+  color: #111111;
+  width: 62px;
+  height: 19px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin-left: 516px;
+  position: absolute;
+  top: 38px;
+  text-decoration: none;
+}
+
+/*=== MENU === */
+
+/*=== === === */
+
+/*=== CHEF === */
+
+#container {
+  position: relative;
+}
+
+#chef {
+  background-color: #fbdfdb;
+  width: 940pX;
+  height: 366px;
+  position: absolute;
+  margin-top: 93px;
+  margin-left: 230px;
+  border-radius: 25px;
+}
+
+
+div#chef-call {
+  color: #111111;
+  font-size: 22px;
+  font-weight: bold;
+  max-width: 305px;
+  height: 38px;
+  position: relative;
+  top: 117px;
+  left: 60px;
+  bottom: 10px;
+  right: 0px;
+  text-align: justify;
+  margin-right: 10px;
+}
+
+div#chef-message {
+  color: #000000;
+  opacity: 0.7;
+  font-size: 18px;
+  line-height: 28px;
+  width: 316px;
+  height: 84px;
+  text-align: justify;
+  position: relative;
+  top: 127px;
+  left: 60px;
+  bottom: 0px;
+  right: 0px;
+  margin-right: 10px;
+}
+
+#chef-image img{
+  width: 216px;
+  height: 300;
+  position: relative;
+  bottom: 55px;
+  left: 624px;
+}
+
+div.mais-acessadas  h2 {
+  font-weight: bold;
+  font-size: 20px;
+  color: #111111;
+  width: 174px;
+  height: 28px;
+  position: relative;
+  top: 509px;
+  left: 230px;
+  margin-bottom: 20px;
+}
+
+#grid {
+  width: 940px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 529px;
+  position: absolute;
+  left: 230px;
+}
+
+.food img {
+  width: 100%;
+  border-radius: 20px;
+  -webkit-transition: 700ms;
+}
+
+.food img:hover {
+  -webkit-transform: scale(1.2);
+  transition: 700ms;
+}
+
+.food-content {
+  margin-top: 20px;
+}
+
+.food-name  {
+  width: 300px;
+  height: 16px;
+  font-size: 17px;
+  line-height: 21px;
+  color: #111111;
+  margin-bottom: 5px;
+}
+
+.food-chef {
+  margin-top: 5px;
+  width: 203px;
+  height: 16px;
+  font-size: 14px;
+  color: #777777;
+  margin-bottom: 30px;
+}
+
+.footer {
+  width: 1400px;
+  height: 62px;
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 1041px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.footer p {
+  color: #999999;
+  width: 440px;
+  height: 16px;
+  margin-top: 23px;
+  margin-bottom: 23px;
+  margin-left: 35%;
+}
+
+#sobre-foodfy {
+  width: 264px;
+  height: 28px;
+  font-weight: bold;
+  font-family: 'Roboto mono', monospace;
+  color: #111111;
+  font-size: 14px;
+  position: relative;
+}
+
+#sobre-foodfy h1 {
+  position: absolute;
+  top: 113px;
+  left: 230px;
+  width: 364px;
+}
+
+#text-one p{
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: absolute;
+}
+
+#text-one  {
+  width: 940px;
+  position: relative;
+  top: 161px;
+  left: 230px;
+  text-align: justify;
+}
+
+#comecou {
+  width: 350px;
+  height: 24px;
+  color: #111111;
+  font-size: 14px;
+  position: absolute;
+  top: 410px;
+  left: 230px;
+}
+
+#text-two {
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: absolute;
+  top: 480px;
+  left: 230px;
+  text-align: justify;
+}
+
+#nossas-receitas {
+  width: 350px;
+  height: 24px;
+  color: #111111;
+  font-size: 14px;
+  position: absolute;
+  top: 700px;
+  left: 230px;
+}
+
+#text-three {
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: absolute;
+  top: 770px;
+  left: 230px;
+  text-align: justify;
+}
+
+#gerenciar {
+  position: absolute;
+  width: 940px;
+  height: 50px;
+  top: 113px;
+  left: 230px;
+  margin-bottom: 30px;
+}
+
+#gerenciar h3, a {
+  display: inline-block;
+}
+
+#gerenciar h3 {
+  font-size: 24px;
+  color: #111111;
+  font-weight: bold;
+  margin-right: 400px;
+}
+
+#gerenciar a {
+  background-color: #fbdfdb;
+  text-decoration: none;
+  color: #111111;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.index {
+  margin: 0 auto;
+  width: 940px;
+  position: absolute;
+  top: 200px;
+  left: 230px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.index img {
+  width: 172px;
+  height: 80px;
+  border-radius: 9px;
+}
+
+.index h2 {
+  font-size: 18px;
+}
+
+.index p, a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.index p {
+  color: #444444;
+}
+
+.index a {
+  color: #111111;
+  padding: 4px 8px;
+  background-color: #fbdfdb;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.index-item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+}

@@ -1,0 +1,16 @@
+// const modalOverlay = document.querySelector('.modal-overlay');
+// const modalTitle = document.querySelector('.modal-title');
+// const names = document.querySelectorAll('.food-revenue-name');
+
+// const nameId = food.querySelector('.food-revenue-name').getAttribute("id");
+// const chefInner = food.querySelector('.food-revenue-chef').innerHTML;
+
+// modalOverlay.classList.add('active');
+// modalOverlay.querySelector(".food-photo").src = `../images/${foodId}`;
+// modalTitle.querySelector('.title').innerHTML = nameId;
+// modalTitle.querySelector('.chef').innerHTML = chefInner;
+
+// document.querySelector(".close-modal").addEventListener("click", function() {
+//   modalOverlay.classList.remove("active");
+//   modalOverlay.querySelector(".food.photo").src = "";
+// });

@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Foodfy</title>
+
+{% endblock %}
+
+
+{% block content %}
+
+  <section id="container">
+    <div id="chef">
+
+      <div class="border" id="chef-call">
+        <p >{{ home.slogan }}</p>
+      </div>
+
+      <div class="border" id="chef-message">
+        <p >{{ home.description }}</p>
+      </div>
+      
+      <div class="border" id="chef-image">
+        <img src="/images/chef.png" alt="Chef">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="mais-acessadas">
+    <h2>{{ home.more }}</h2>
+  </div>
+
+  <section id="grid">
+
+
+    {% for food in home.favorites %}
+    <div class="food">
+      <div class="food-image">
+        <img src="{{ food.image }}" alt="Foto do prato {{ food.image }}">
+      </div>
+
+      <div class="food-content">
+        <p class="food-name">{{ food.name }}</p>
+        <p class="food-chef">{{ food.autor }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <footer class="footer">
+    <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
+  </footer>
+
+    
+{% endblock %}

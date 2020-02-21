@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Foodfy - Receitas</title>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <section id="revenue">
+
+      {% for food in foods %}
+      <div class="food-revenue" id="{{ food.id }}">
+        <div class="food-revenue-image">
+          <img src="{{ food.image }}" alt="Imagem {{ food.name }}">
+        </div>
+
+        <div class="food-revenue-content">
+          <p class="food-revenue-name" id="{{ food.name }}">{{ food.name }}</p>
+          <p class="food-revenue-chef">{{ food.chef }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </section>
+
+    <footer class="footer">
+      <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
+    </footer>
+
+    <script src="/script.js"></script>
+
+{% endblock %}

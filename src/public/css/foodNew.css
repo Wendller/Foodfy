@@ -1,0 +1,130 @@
+#head {
+  position: absolute;
+  min-width: 940px;
+  min-height: 390px;
+  top: 113px;
+  left: 230px;
+}
+
+.food-photo {
+  width: 940px;
+  height: 280px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+}
+
+.food-name-div {
+  text-align: center;
+  width: 518px;
+  height: 42px;
+  font-size: 36px;
+  text-align: center;
+  color: #111111;
+  margin: 0 auto;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.food-author {
+  width: 300px;
+  height: 24px;
+  color: #777777;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+#body {
+  width: 940px;
+  min-height: 560px;
+  margin: 0 auto;
+  position: absolute;
+  top: 565px;
+  left: 230px;
+}
+
+.ingredientes-head,
+.modopreparo-head {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.info-head {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.ingredientes-head h3, p,
+.modopreparo-head h3, p,
+.info-head h3, p {
+  display: inline-block;
+}
+
+.ingredientes-head h3,
+.modopreparo-head h3,
+.info-head h3 {
+  font-size: 24px;
+  color: #111111;
+}
+
+.ingredientes-head p,
+.modopreparo-head p,
+.info-head p {
+  color: #999999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ingredientes-list,
+.modopreparo-list,
+.info-list {
+  width: 940px;
+  margin-bottom: 39px;
+  color: #444444;
+}
+
+.ingredientes-list.hidden,
+.modopreparo-list.hidden,
+.info-list.hidden {
+  display: none;
+}
+
+.foooter {
+  position: absolute;
+  width: 100%;
+  margin-top: 20px;
+  height: 62px;
+  background-color: #EEEEEE;
+  text-align: center;
+  display: block;
+}
+
+.foooter p {
+  color: #999999;
+  width: 440px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 23px;
+  margin-left: 0%;
+}
+
+.editar {
+  background-color: #fbdfdb;
+  width: 150px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  align-items: center;
+  position: absolute;
+  left: 990px;
+  top: 32px;
+  text-align: center;
+}
+
+.editar a {
+  text-decoration: none;
+  color: #111111;
+}
+
+
+

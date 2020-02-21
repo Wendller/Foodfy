@@ -1,0 +1,83 @@
+#sobre-foodfy {
+  width: 264px;
+  height: 28px;
+  font-weight: bold;
+  font-family: 'Roboto mono', monospace;
+  color: #111111;
+  font-size: 14px;
+  position: relative;
+}
+
+#sobre-foodfy h1 {
+  position: absolute;
+  top: 113px;
+  left: 230px;
+  width: 364px;
+}
+
+#text-one {
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: relative;
+}
+
+#text-one p {
+  width: 940px;
+  position: absolute;
+  top: 161px;
+  left: 230px;
+  text-align: justify;
+}
+
+#comecou {
+  width: 350px;
+  height: 24px;
+  color: #111111;
+  font-size: 14px;
+  position: absolute;
+  top: 410px;
+  left: 230px;
+}
+
+#text-two {
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: absolute;
+  top: 480px;
+  left: 230px;
+  text-align: justify;
+}
+
+#nossas-receitas {
+  width: 350px;
+  height: 24px;
+  color: #111111;
+  font-size: 14px;
+  position: absolute;
+  top: 700px;
+  left: 230px;
+}
+
+#text-three {
+  width: 940px;
+  height: 280px;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Roboto mono', monospace;
+  position: absolute;
+  top: 770px;
+  left: 230px;
+  text-align: justify;
+}
+
+
+

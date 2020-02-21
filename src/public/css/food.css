@@ -1,0 +1,183 @@
+.food-photo {
+  position: absolute;
+  top: 113px;
+  left: 230px;
+  border-radius: 15px;
+}
+
+.food-name {
+  width: 660px;
+  height: 45px;
+  position: absolute;
+  top: 230px;
+  left: 190px;
+  text-align: center;
+}
+
+.food-name h1 {
+  font-size: 36px;
+  width: 650px;
+}
+
+
+.food-author {
+  color: #777777;
+  font-size: 20px;
+  line-height: 24px;
+  width: 247px;
+  height: 24px;
+  position: absolute;
+  top: 495px;
+  left: 46%;
+  margin: auto;
+}
+
+.sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 1000px;
+  height: 60%;
+}
+
+.ingredientes {
+  width: 136px;
+  height: 28px;
+  color: #111111;
+  line-height: 28px;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  margin: auto;
+  
+}
+
+h3 {
+  position: absolute;
+  top: 569px;
+  left: 230px;
+}
+
+.esconder {
+  width: 61px;
+  height: 14px;
+  color: #999999;
+  position: absolute;
+  top: 572px;
+  left: 376px;
+  cursor: pointer;
+}
+
+
+.food-list {
+  width: 940px;
+  height: 196px;
+  position: absolute;
+  top: 617px;
+  left: 230px;
+  margin-bottom: 20px;
+  color: #444444;
+}
+
+.food-list.hidden {
+  visibility: hidden;
+  height: 20px;
+}
+
+.prepare {
+  width: 284px;
+  height: 28px;
+  font-size: 24px;
+  color: #111111;
+  font-weight: bold;
+  position: absolute;
+  top: 835px;
+  left: 230px;
+  margin: 60px auto;
+}
+
+.esconder_one {
+  width: 61px;
+  height: 14px;
+  color: #999999;
+  position: absolute;
+  top: 903px;
+  left: 457px;
+  cursor: pointer;
+}
+
+.prepare-list {
+  width: 940px;
+  height: 196px;
+  position: absolute;
+  top: 897px;
+  left: 230px;
+  margin: auto;
+  color: #444444;
+  margin-top: 60px;
+}
+
+.prepare-list.hidden {
+  display: none;
+}
+
+.aditional-info {
+  width: 384px;
+  height: 28px;
+  font-size: 24px;
+  color: #111111;
+  font-weight: bold;
+  position: absolute;
+  top: 1070px;
+  left: 230px;
+  margin-top: 80px;
+}
+
+.prepare-mode {
+  width: 940px;
+  height: 196px;
+  color: #444444;
+  line-height: 28px;
+  font-size: 18px;
+  position: absolute;
+  top: 1140px;
+  left: 230px;
+  margin-top: 80px;
+}
+
+.prepare-mode.hidden {
+  visibility: hidden;
+}
+
+.footer p{
+  top: 1460px;
+}
+
+.esconder_two {
+  width: 61px;
+  height: 14px;
+  color: #999999;
+  position: absolute;
+  top: 1157px;
+  left: 558px;
+  cursor: pointer;
+}
+
+.foooter {
+  width: 1400px;
+  height: 62px;
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 1430px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.foooter p {
+  color: #999999;
+  width: 440px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 23px;
+  margin-left: 35%;
+}
+

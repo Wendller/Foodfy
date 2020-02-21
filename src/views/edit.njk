@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    
+    <title>Foodfy - Nova receita</title>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/admin.css">
+  </head>
+
+  <body>
+    <header>
+        <a href="/" id="foodfyy">Foodfy</a>
+        <a href="/" id="sair">Sair</a>
+    </header>
+
+    <form class="card-recipe" method="POST" action="/admin/recipes?_method=PUT">
+      <section class="avatar" style="background: url({{ dessert.image }}) no-repeat center / cover"></section>
+      <section class="details"> 
+
+        <div class="item">
+          <div>Imagem da receita</div>
+          <div>
+            <input type="text" name="image" placeholder="http://" value="{{ dessert.image }}">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Nome da receita</div>
+          <div>
+            <input type="text" name="title"value="{{ dessert.title }}" placeholder="Informe o nome">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Autor da receita</div>
+          <div>
+            <input type="text" name="author" value="{{ dessert.author }}" placeholder="Informe o autor">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Ingredientes</div>
+          <div id="ingredientes">
+            {% for item in dessert.ingredients %}
+            <input type="text" name="ingredients[]" value="{{ item }}" placeholder="Ingrediente">
+            {% endfor %}
+          </div>
+
+          <button type="button" class="add-ingredient">Adicionar</button>
+          <button type="button" class="add-ingredient">Enviar</button>
+
+        </div>
+
+        <div class="item">
+          <div>Modo de preparo</div>
+          <div id="prepare-mode">
+            {% for item in dessert.preparation %}
+            <input type="text" name="preparation[]" value="{{ item }}" placeholder="Instrução">
+            {% endfor %}
+          </div>
+
+          <button type="button" class="add-ingredient">Adicionar instrução</button>
+        </div>
+
+        <div class="item">
+          <div>Informações adicionais (Opcional)</div>
+          <div>
+            <textarea type="text" name="information" value="" placeholder="Informações adicionais">{{ dessert.information }}</textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="add-ingredient">Salvar receita</button>
+
+        {# <form id="formulario-delete" method="POST" action="/admin/recipes?_method=DELETE">
+          <button type="submit" id="del-ingredient">Deletar receita</button>
+          <input type="hidden" name="id" value="{{ dessert.id }}">
+        </form> #}
+
+      <input type="hidden" name="id" value="{{ dessert.id }}">
+    </form>
+
+    <form id="formulario-delete" method="POST" action="/admin/recipes?_method=DELETE">
+      <button type="submit" id="del-ingredient">Deletar receita</button>
+      <input type="hidden" name="id" value="{{ dessert.id }}">
+    </form>
+
+  </section>
+  </body>
+
+
+</html>

@@ -1,0 +1,69 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Foodfy - {{ recipe.title }}</title>
+    <link rel="stylesheet" href="/css/foodNew.css">
+{% endblock %}
+
+
+{% block content %}
+
+  
+  {% block button %}{% endblock %}
+
+  <section id="head">
+    <img src="{{ recipe.image }}" class="food-photo">
+
+    <div class="food-name-div">
+      {{ recipe.title }}
+    </div>
+
+    <h2 class="food-author">{{ recipe.author }}</h2>
+  </section>
+    
+  <section id="body">
+    <div class="ingredientes-head">
+      <h3>Ingredientes</h3>
+      <p>Esconder</p>
+    </div>
+
+    <div class="ingredientes-list">
+      <ul>
+        {% for ingredient in recipe.ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="modopreparo-head">
+      <h3>Modo de preparo</h3>
+      <p>Esconder</p>
+    </div>
+    
+    <div class="modopreparo-list">
+      <ul>
+        {% for rule in recipe.preparation %}
+        <li>{{ rule }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="info-head">
+      <h3>Informações adicionais</h3>
+      <p>Esconder</p>
+    </div>
+
+    <div class="info-list">
+      <p>{{ recipe.information }}</p>
+    </div>
+
+    <footer class="foooter">
+      <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
+    </footer>
+
+  </section>
+ 
+  
+  <script src="/script.js"></script>
+
+{% endblock %}

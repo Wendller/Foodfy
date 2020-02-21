@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* #gerenciar {
+  position: absolute;
+  width: 940px;
+  height: 50px;
+  top: 113px;
+  left: 230px;
+  margin-bottom: 30px;
+}
+
+#gerenciar h3, a {
+  display: inline-block;
+}
+
+#gerenciar h3 {
+  font-size: 24px;
+  color: #111111;
+  font-weight: bold;
+  margin-right: 400px;
+}
+
+#gerenciar a {
+  background-color: #fbdfdb;
+  text-decoration: none;
+  color: #111111;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.index {
+  margin: 0 auto;
+  width: 940px;
+  position: absolute;
+  top: 200px;
+  left: 230px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.index img {
+  width: 172px;
+  height: 80px;
+  border-radius: 9px;
+}
+
+.index h2 {
+  font-size: 18px;
+}
+
+.index p, a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.index p {
+  color: #444444;
+}
+
+.index a {
+  color: #111111;
+  padding: 4px 8px;
+  background-color: #fbdfdb;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.index-item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+} */
+
+/* FORMULARIO DE CRIACAO */
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: #111111;
+  align-items: center;
+  position: relative;
+}
+
+#foodfyy {
+  width: 96.6px;
+  height: 27px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 25px;
+  left: 230px;
+  font-family: 'Cochin';
+  font-size: 28px;
+  letter-spacing: 1.65px;
+  text-decoration: none;
+}
+
+
+#sair {
+  width: 96.6px;
+  height: 27px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 25px;
+  left: 1060px;
+  font-family: 'Cochin';
+  font-size: 28px;
+  letter-spacing: 1.65px;
+  text-decoration: none;
+}
+
+.card-recipe {
+  width: 1200px;
+  min-height: 560px;
+  margin: 42px auto;
+  background-color: #fbdfdb;
+  border-radius: 8px;
+
+  display: grid;
+  grid-template-rows: 0% 100%;
+  box-shadow: 6px 6px 6px 10px rgba(0, 0, 0, 0.6);
+
+  animation-name: up;
+  animation-duration: 900ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.details {
+  padding: 32px;
+  height: auto;
+}
+
+.details .item{
+  border-bottom: 1px solid #444444;
+  padding: 16px;
+}
+
+.details .item:last-child {
+  border: none;
+}
+
+.details .item div:nth-child(1) {
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+  letter-spacing: 0.7px;
+  font-weight: normal;
+  font-family: 'Cochin';
+}
+
+.details .item div:nth-child(2) {
+  color: #111111;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  color: black;
+  background-color: #fbdfdb;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 0;
+  font-family: 'Cochin';
+}
+
+input::placeholder {
+  color: #777777;
+  font-size: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  height: 100px;
+  background-color: #fbdfdb;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+button[type=button] {
+  font-family: 'Cochin';
+  font-size: 16px;
+  background-color: #777777;
+  color:white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button[type=submit] {
+  width: 80%;
+  padding: 8px 16px;
+  margin: 0px auto;
+  margin-top: 32px;
+  margin-left: 85px;
+  font-family: 'Cochin';
+  font-size: 20px;
+  background-color: #0e5dc4;
+  color:white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#del-ingredient {
+  background-color: rgb(221, 28, 14);
+  margin-left: 85px;
+}
+
+#save {
+  width: 80%;
+  margin-left: 100px;
+}
