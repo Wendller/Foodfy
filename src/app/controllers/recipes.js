@@ -10,7 +10,7 @@ module.exports = {
 
   },
   create(req, res) {
-    return 
+    return res.render("recipes/create")
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -22,13 +22,26 @@ module.exports = {
       }
     }
 
-    return
+    Recipe.create(req.body, function(recipe) {
+      return res.redirect(`/admin/recipes/${recipe.id}`)
+    });
   },
   show(req, res) {
-    return
+
+    Recipe.find(req.params.id, function(recipe) {
+      if(!recipe) return res.send("Receita não encontrada!")
+
+      return res.render("recipes/show", { recipe })
+    });
+
   },
   edit(req, res) {
-    return
+    
+    Recipe.find(req.params.id, function(dessert) {
+      
+      return res.render("recipes/edit", { dessert })
+    });
+
   },
   put(req, res) {
     const keys = Object.keys(req.body);
@@ -40,10 +53,16 @@ module.exports = {
       }
     }
 
-    return
+    Recipe.update(req.body, function() {
+      return res.redirect(`/admin/recipes/${req.body.id}`)
+    });
   },
   delete(req, res) {
-    return
+    
+    Recipe.delete(req.body.id, function() {
+      return res.redirect("/admin/recipes");
+    });
+
   }
   
 }

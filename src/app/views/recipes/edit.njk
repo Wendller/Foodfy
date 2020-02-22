@@ -36,35 +36,36 @@
           </div>
         </div>
 
-        <div class="item">
+        {# <div class="item">
           <div>Autor da receita</div>
           <div>
             <input type="text" name="author" value="{{ dessert.author }}" placeholder="Informe o autor">
           </div>
-        </div>
+        </div> #}
 
         <div class="item">
           <div>Ingredientes</div>
-          <div id="ingredientes">
-            {% for item in dessert.ingredients %}
-            <input type="text" name="ingredients[]" value="{{ item }}" placeholder="Ingrediente">
-            {% endfor %}
+          <div id="ingredients">
+            <div id="ingredientes" class="ingrediente-container">
+                {% for item in dessert.ingredients %}
+                <input type="text" class="ingrediente-input" name="ingredients" value="{{ item }}" placeholder="Ingrediente">
+                {% endfor %}            
+            </div>
           </div>
 
           <button type="button" class="add-ingredient">Adicionar</button>
-          <button type="button" class="add-ingredient">Enviar</button>
 
         </div>
 
         <div class="item">
           <div>Modo de preparo</div>
-          <div id="prepare-mode">
+          <div id="prepare-mode" class="prepare-container">
             {% for item in dessert.preparation %}
-            <input type="text" name="preparation[]" value="{{ item }}" placeholder="Instrução">
+            <input type="text" class="prepare-input" name="preparation" value="{{ item }}" placeholder="Instrução">
             {% endfor %}
           </div>
 
-          <button type="button" class="add-ingredient">Adicionar instrução</button>
+          <button type="button" class="add-instro">Adicionar instrução</button>
         </div>
 
         <div class="item">
@@ -74,7 +75,7 @@
           </div>
         </div>
 
-        <button type="submit" class="add-ingredient">Salvar receita</button>
+        <button type="submit" class="add-ingredient" id="add-recipe">Salvar receita</button>
 
         {# <form id="formulario-delete" method="POST" action="/admin/recipes?_method=DELETE">
           <button type="submit" id="del-ingredient">Deletar receita</button>
@@ -85,11 +86,13 @@
     </form>
 
     <form id="formulario-delete" method="POST" action="/admin/recipes?_method=DELETE">
-      <button type="submit" id="del-ingredient">Deletar receita</button>
+      <button type="submit" id="del-ingredient-recipe">Deletar receita</button>
       <input type="hidden" name="id" value="{{ dessert.id }}">
     </form>
 
   </section>
+
+  <script src="/scripts.js"></script>
   </body>
 
 

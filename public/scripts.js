@@ -15,12 +15,12 @@ function addIngredient(classePai, classeFilho, name) {
 document
   .querySelector(".add-ingredient")
   .addEventListener("click", function() {
-    addIngredient(".ingrediente-container", ".ingrediente-input", "ingredients[]")
+    addIngredient(".ingrediente-container", ".ingrediente-input", "ingredients")
   });
 
 
 document
   .querySelector(".add-instro")
   .addEventListener("click", function() {
-    addIngredient(".prepare-container", ".prepare-input", "preparation[]")
+    addIngredient(".prepare-container", ".prepare-input", "preparation")
   });

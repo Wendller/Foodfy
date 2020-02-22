@@ -14,6 +14,7 @@ body {
 
 .menu {
   position: relative;
+  background-color: salmon;
 }
 
 #foodfy {

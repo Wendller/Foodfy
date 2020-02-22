@@ -16,19 +16,17 @@ module.exports = {
 
     const query = `
       INSERT INTO receipts (
-        chef_id,
         image,
         title,
-        ingredients[],
-        preparation[],
+        ingredients,
+        preparation,
         information,
         created_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+      ) VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING id
     `
 
     const values = [
-      data.chef,
       data.image,
       data.title,
       data.ingredients,
@@ -41,6 +39,46 @@ module.exports = {
       if(err) throw `Database error: ${err}`
 
       callback(results.rows[0]);
+    });
+  },
+  find(id, callback) {
+    db.query(`SELECT * FROM receipts WHERE id = ${id}`, function(err, results) {
+      if(err) throw `Database error! ==> ${err}`
+
+      callback(results.rows[0]);
+    });
+  },
+  update(data, callback) {
+    const query = `
+      UPDATE receipts SET
+        image=($1),
+        title=($2),
+        ingredients=($3),
+        preparation=($4),
+        information=($5)
+        WHERE id = $6
+    `
+
+    const values = [
+      data.image,
+      data.title,
+      data.ingredients,
+      data.preparation,
+      data.information,
+      data.id
+    ]
+
+    db.query(query, values, function(err, results) {
+      if(err) throw `Database error! ==> ${err}`
+
+      callback()
+    });
+  },
+  delete(id, callback) {
+    db.query(`DELETE FROM receipts WHERE id = $1`, [id], function(err, results) {
+      if(err) throw `Database error! ==> ${err}`
+
+      callback();
     });
   }
 
