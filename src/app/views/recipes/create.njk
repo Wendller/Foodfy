@@ -40,7 +40,13 @@
         <div class="item">
           <div>Autor da receita</div>
           <div>
-            <input type="text" name="author" value="{{ dessert.author }}" placeholder="Informe o autor">
+            <select name="chef">
+              {% for chef in chefOptions %}
+              <option value="{{ chef.id }}">
+              {{ chef.name }}
+              </option>
+              {% endfor %}
+            </select>
           </div>
         </div>
 

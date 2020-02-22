@@ -1,11 +1,18 @@
+const Chef = require("../models/Chef");
 
 module.exports = {
 
   index(req, res) {
-    return
+    
+    Chef.all(function(chefs) {
+      return res.render("chefs/index", { chefs })
+    });
+
   },
   create(req, res) {
-    return 
+    
+    return res.render("chefs/create")
+
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -17,13 +24,27 @@ module.exports = {
       }
     }
 
-    return
+    Chef.create(req.body, function(chef) {
+      return res.redirect(`/admin/chefs/${chef.id}`)
+    });
   },
   show(req, res) {
-    return
+    
+    Chef.find(req.params.id, function(chef) {
+      if(!chef) return res.send("Chef não encontrado!")
+
+      return res.render("chefs/show", { chef })
+    });
+
   },
   edit(req, res) {
-    return
+    
+    Chef.find(req.params.id, function(chef) {
+      if(!chef) return res.send("Chef não encontrado!")
+
+      return res.render("chefs/edit", { chef })
+    });
+
   },
   put(req, res) {
     const keys = Object.keys(req.body);
@@ -35,10 +56,16 @@ module.exports = {
       }
     }
 
-    return
+    Chef.update(req.body, function() {
+      return res.redirect(`/admin/chefs/${req.body.id}`)
+    });
   },
   delete(req, res) {
-    return
+    
+    Chef.delete(req.body.id, function() {
+      return res.redirect("/admin/chefs")
+    });
+
   }
   
 }

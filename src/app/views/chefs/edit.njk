@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    
+    <title>Foodfy - Editar chef</title>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/admin.css">
+  </head>
+
+  <body>
+    <header>
+        <a href="/" id="foodfyy">Foodfy</a>
+        <a href="/" id="sair">Sair</a>
+    </header>
+
+    <section class="card-recipe"  >
+      <section class="avatar" style="background: url(https://source.unsplash.com/collection/4878233/600x600) no-repeat center / cover"></section>
+      <form class="details" method="POST" action="/admin/chefs?_method=PUT"> 
+
+        <div class="item">
+          <div>Foto do chef</div>
+          <div>
+            <input type="text" name="avatar_url" placeholder="http://" value="{{ chef.avatar_url }}">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Nome do chef</div>
+          <div>
+            <input type="text" name="name"value="{{ chef.name }}" placeholder="Informe o nome">
+          </div>
+        </div>
+          
+        <button type="submit" id="save">Realizar cadastro</button>
+        <input type="hidden" name="id" value="{{ chef.id }}">
+      </form>
+
+      <form id="formulario-delete" method="POST" action="/admin/chefs?_method=DELETE">
+        <button type="submit" id="del-ingredient">Deletar receita</button>
+        <input type="hidden" name="id" value="{{ chef.id }}">
+      </form>
+
+    </section>
+
+    
+
+  <script src="/scripts.js"></script>
+  </body>
+
+
+</html>

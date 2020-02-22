@@ -20,7 +20,7 @@ exports.main = function(req, res) {
   }
 
 
-  return res.render("home", { home })
+  return res.render("main/home", { home })
 }
 
 // Sobre page
@@ -36,7 +36,7 @@ exports.about = function(req, res) {
   }
 
 
-  return res.render("about", { about })
+  return res.render("main/about", { about })
 };
 
 // Menu page
@@ -60,7 +60,7 @@ exports.menu = function(req, res) {
   ]
 
 
-  return res.render("menu", { foods })
+  return res.render("main/menu", { foods })
 };
 
 // Recipe page
@@ -75,6 +75,6 @@ exports.recipes = function(req, res) {
     return res.send("Dessert not found!")
   }
 
-  return res.render("foodtest.njk", { recipe })
+  return res.render("main/foodtest", { recipe })
 
 }

@@ -115,7 +115,7 @@ header {
 
 .card-recipe {
   width: 1200px;
-  min-height: 560px;
+  min-height: 360px;
   margin: 42px auto;
   background-color: #fbdfdb;
   border-radius: 8px;
@@ -212,18 +212,29 @@ button[type=submit] {
   margin-left: 85px;
   font-family: 'Cochin';
   font-size: 20px;
-  background-color: #0e5dc4;
+  background-color: #777777;
   color:white;
   border-radius: 8px;
   cursor: pointer;
 }
 
 #del-ingredient {
-  background-color: rgb(221, 28, 14);
-  margin-left: 85px;
+  background-color: #777777;
+  position: absolute;
+  top: 346px;
+  left: 670px;
+  width: 300px;
+}
+
+#del-ingredient:hover {
+  border: 3px solid red;
 }
 
 #save {
-  width: 80%;
-  margin-left: 100px;
+  width: 300px;
+  margin-left: 150px;
+}
+
+#save:hover {
+  border: 3px solid #6558c3;
 }

@@ -1,8 +1,13 @@
+Recipe = require("../models/Recipe");
 
 module.exports = {
 
   index(req, res) {
-    return
+    
+    Recipe.all(function(receipts) {
+      return res.render("recipes/index", { receipts })
+    });
+
   },
   create(req, res) {
     return 

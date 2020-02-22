@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    
+    <title>Foodfy - Novo chef</title>
+    
+    {% block header %}
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+      <link rel="icon" href="favicon.ico" type="image/x-icon" />
+      <link rel="stylesheet" href="/css/admin.css">
+    {% endblock %}
+  </head>
+
+  <body>
+    <header>
+        <a href="/" id="foodfyy">Foodfy</a>
+        <a href="/" id="sair">Sair</a>
+    </header>
+
+    <form class="card-recipe" method="POST" action="/admin/chefs" >
+      <section class="avatar" style="background: url(https://source.unsplash.com/collection/4878233/600x600) no-repeat center / cover"></section>
+      <section class="details"> 
+
+        <div class="item">
+          <div>Foto do chef</div>
+          <div>
+            <input type="text" name="avatar_url" placeholder="http://" value="{{ chef.avatar_url }}">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Nome do chef</div>
+          <div>
+            <input type="text" name="name"value="{{ chef.name }}" placeholder="Informe o nome">
+          </div>
+        </div>
+          
+
+        <button type="submit" id="create">Realizar cadastro</button>
+      </section>
+    </form>
+
+  <script src="/scripts.js"></script>
+  </body>
+
+
+</html>
