@@ -7,7 +7,20 @@
 {% endblock %}
 
 
-{% block content %}
+  {% block content %}
+    <div class="menu-home mode" id="search">
+        <a href="/" id="foodfy">Foodfy</a>
+        <a href="/about" id="sobre">Sobre</a>
+        <a href="/menu" id="receitas">Receitas</a>
+        <a href="/admin/chefs" id="menu-chefs">Chefs</a>
+        <form action="/menu" method="GET">
+          <input type="text" name="filter" placeholder="Filtrar receita">
+          <button type="submit">Filtrar</button>
+        </form>
+      </div>
+  {% block header %}
+
+  {% endblock %}
 
     <section id="revenue">
 
@@ -18,7 +31,7 @@
         </div>
 
         <div class="food-revenue-content">
-          <p class="food-revenue-name" id="{{ food.name }}">{{ food.name }}</p>
+          <p class="food-revenue-name" id="{{ food.name }}">{{ food.title }}</p>
           <p class="food-revenue-chef">{{ food.chef }}</p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 const foods = document.querySelectorAll('.food-revenue');
 
 const esconder = document.querySelector(".ingredientes-head p");

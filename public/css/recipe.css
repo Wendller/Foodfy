@@ -3,25 +3,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  margin-top: 113px;
+  margin-top: 60px;
   position: absolute;
   left: 230px;
 }
 
 .food-revenue-image img {
   width: 100%;
+  height: 130px;
   border-radius: 20px;
   -webkit-transition: 700ms;
   cursor: pointer;
 }
 
 .food-revenue-image img:hover {
-  -webkit-transform: scale(1.2);
+  -webkit-transform: scale(1.1);
   transition: 700ms;
 }
 
 .food-revenue-content {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .food-revenue-name  {
@@ -35,10 +36,48 @@
 
 .food-revenue-chef {
   margin-top: 5px;
-  width: 203px;
+  width: 100%;
   height: 16px;
   font-size: 14px;
   color: #777777;
   margin-bottom: 10px;
 }
 
+#search {
+  position: relative;
+}
+
+#search form {
+  align-self: center;
+  position: absolute;
+  top: 40px;
+  left: 840px; 
+}
+
+#search form input {
+  box-sizing: border-box;
+  background-color: #23272a;
+  color: #fbdfdb;
+  font-size: 18px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid #fbdfdb;
+}
+
+#search form input::placeholder {
+  color: #fbdfdb;
+}
+
+#search form button {
+  width: 80px;
+  font-size: 18px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: #fbdfdb;
+  color: #23272a;
+  cursor: pointer;
+}
+
+#search form button:hover {
+  border: 2px solid #7289da;
+}

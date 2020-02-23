@@ -14,13 +14,14 @@
   </head>
 
   <body>
-    <header>
-      <div class="menu">
+    {% block header %}
+      <div class="menu-home mode">
         <a href="/" id="foodfy">Foodfy</a>
         <a href="/about" id="sobre">Sobre</a>
         <a href="/menu" id="receitas">Receitas</a>
+        <a href="/admin/chefs" id="menu-chefs">Chefs</a>
       </div>
-    </header>
+    {% endblock %}
 
     {% block content %}{% endblock %}
 

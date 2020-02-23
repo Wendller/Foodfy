@@ -1,5 +1,5 @@
 const desserts = require("../../lib/data.json");
-
+const Home = require("../models/Home");
 
 // Home page
 exports.main = function(req, res) {
@@ -41,26 +41,14 @@ exports.about = function(req, res) {
 
 // Menu page
 exports.menu = function(req, res) {
+  
 
-  const foods = [
-
-    { id: "1", image: "/images/burger.png", name: "Triplo Bacon Burger", chef: "por Jorge Relato" },
-    { id: "2", image: "/images/pizza.png", name: "Pizza 4 estações", chef: "por Fabiana Melo" },
-    { id: "3", image: "/images/espaguete.png", name: "Espaguete ao alho", chef: "por Júlia Kinoto" },
-    { id: "4", image: "/images/lasanha.png", name: "Lasanha mac n` cheese", chef: "por Juliano Vieira" },
-    { id: "5", image: "/images/doce.png", name: "Docinhos pão-do-céu", chef: "por Ricardo Golvea" },
-    { id: "6", image: "/images/asinhas.png", name: "Asinhas de frango ao barbecue", chef: "por Vania Steroski" },
-    { id: "1", image: "/images/burger.png", name: "Triplo Bacon Burger", chef: "por Jorge Relato" },
-    { id: "2", image: "/images/pizza.png", name: "Pizza 4 estações", chef: "por Fabiana Melo" },
-    { id: "3", image: "/images/espaguete.png", name: "Espaguete ao alho", chef: "por Júlia Kinoto" },
-    { id: "4", image: "/images/lasanha.png", name: "Lasanha mac n` cheese", chef: "por Juliano Vieira" },
-    { id: "5", image: "/images/doce.png", name: "Docinhos pão-do-céu", chef: "por Ricardo Golvea" },
-    { id: "6", image: "/images/asinhas.png", name: "Asinhas de frango ao barbecue", chef: "por Vania Steroski" },
-    
-  ]
+  Home.all(function(foods) {
+    return res.render("main/menu", { foods })
+  });
 
 
-  return res.render("main/menu", { foods })
+  
 };
 
 // Recipe page
