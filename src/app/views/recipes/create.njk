@@ -32,28 +32,15 @@
         <div class="item">
           <div>Nome da receita</div>
           <div>
-            <input type="text" name="title"value="{{ dessert.title }}" placeholder="Informe o nome">
+            <input type="text" name="title" placeholder="Informe o nome">
           </div>
         </div>
-
-        {# <div class="item">
-          <div>Autor da receita</div>
-          <div>
-            <select name="chef">
-              {% for chef in chefOptions %}
-              <option value="{{ chef.id }}">
-              {{ chef.name }}
-              </option>
-              {% endfor %}
-            </select>
-          </div>
-        </div> #}
 
         <div class="item">
           <div>Ingredientes</div>
           <div id="ingredients">
             <div id="ingredientes" class="ingrediente-container">
-              <input type="text" class="ingrediente-input" name="ingredients" value="" placeholder="Ingrediente">            
+              <input type="text" class="ingrediente-input" name="ingredients" placeholder="Ingrediente">            
             </div>
           </div>
           
@@ -76,6 +63,19 @@
           <div>Informações adicionais (Opcional)</div>
           <div>
             <textarea type="text" name="information" value="{{ dessert.information }}" placeholder="Informações adicionais"></textarea>
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Autor(a) da receita</div>
+          <div>
+            <select name="chef">
+              {% for chef in chefOptions %}
+              <option value="{{ chef.id }}">
+              {{ chef.name }}
+              </option>
+              {% endfor %}
+            </select>
           </div>
         </div>
 

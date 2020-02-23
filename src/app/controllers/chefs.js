@@ -32,8 +32,14 @@ module.exports = {
     
     Chef.find(req.params.id, function(chef) {
       if(!chef) return res.send("Chef não encontrado!")
-
-      return res.render("chefs/show", { chef })
+      Chef.findMyFood(req.params.id, function(receipts) {
+        list = [];
+        for(receipt of receipts) {
+          list.push(receipt.idd)
+        }
+        total = list.length;
+        return res.render("chefs/show", { chef, receipts, total })
+      });
     });
 
   },

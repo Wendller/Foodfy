@@ -342,6 +342,10 @@ div.mais-acessadas  h2 {
   grid-template-columns: 190px 1fr;
 }
 
+.index-item p {
+  text-align: left;
+}
+
 /* INDEX CHEF */
 .index-chef {
   margin: 0 auto;
@@ -457,7 +461,7 @@ div.mais-acessadas  h2 {
   left: 230px;
 }
 
-.chef-receipts {
+/* .chef-receipts {
   position: absolute;
   top: 600px;
   left: 230px;
@@ -466,4 +470,12 @@ div.mais-acessadas  h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+} */
+
+#chef-portfolio {
+  top: 610px;
+  margin-bottom: 100px;
+  gap: 30px;
 }
+
+

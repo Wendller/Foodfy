@@ -4,7 +4,7 @@ const { date } = require("../../lib/utils");
 module.exports = {
 
   all(callback) {
-    db.query('SELECT * FROM chefs', function(err, results) {
+    db.query('SELECT chefs.*, count(receipts) AS total_receipts FROM chefs LEFT JOIN receipts ON (chefs.id = receipts.chef_id) GROUP BY chefs.id ORDER BY total_receipts DESC', function(err, results) {
       if(err) throw `Database error: ${err}`
 
       callback(results.rows);
@@ -64,6 +64,13 @@ module.exports = {
       if(err) throw `Database error: ${err}`
 
       callback();
+    });
+  },
+  findMyFood(id, callback) {
+    db.query(`SELECT receipts.title AS name, receipts.id AS idd, receipts.image AS images FROM chefs LEFT JOIN receipts ON (receipts.chef_id = chefs.id) WHERE chefs.id = ${id}`, function(err, results) {
+      if(err) throw `Database error! ==> ${err}`
+
+      callback(results.rows);
     });
   }
 

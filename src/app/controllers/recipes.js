@@ -10,7 +10,11 @@ module.exports = {
 
   },
   create(req, res) {
-    return res.render("recipes/create")
+
+    Recipe.chefsSelectOptions(function(chefOptions) {
+      return res.render("recipes/create", { chefOptions })
+    });
+    
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -38,8 +42,9 @@ module.exports = {
   edit(req, res) {
     
     Recipe.find(req.params.id, function(dessert) {
-      
-      return res.render("recipes/edit", { dessert })
+      Recipe.chefsSelectOptions(function(chefOptions) {
+        return res.render("recipes/edit", { dessert, chefOptions })
+      });
     });
 
   },
