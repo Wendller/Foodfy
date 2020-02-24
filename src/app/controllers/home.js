@@ -41,13 +41,27 @@ exports.about = function(req, res) {
 
 // Menu page
 exports.menu = function(req, res) {
+  let { filter, page, limit } = req.query;
+
+  page = page || 1;
+  limit = limit || 3;
+  let offset = limit * (page - 1);
+
+  const params = {
+    filter,
+    page,
+    limit,
+    offset
+  } 
   
+  Home.paginate(params, function(foods) {
 
-  Home.all(function(foods) {
-    return res.render("main/menu", { foods })
+    const pagination = {
+      total: Math.ceil(foods[0].total / limit),
+      page
+    }
+    return res.render("main/menu", { foods, pagination, filter })
   });
-
-
   
 };
 

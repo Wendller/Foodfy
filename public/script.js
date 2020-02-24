@@ -1,3 +1,8 @@
+const buscando = document.querySelector(".buscando")
+const botao = document.querySelector(".botao-buscar")
+const filtre = document.querySelector(".input-buscar")
+
+
 
 const foods = document.querySelectorAll('.food-revenue');
 
@@ -7,6 +12,8 @@ const esconder_two = document.querySelector(".info-head p");
 const ingredients = document.querySelector(".ingredientes-list");
 const prepareList = document.querySelector(".modopreparo-list");
 const prepareMode = document.querySelector(".info-list");
+
+
 
 function show(topic, message) {
   message.addEventListener("click", function() {
@@ -29,9 +36,12 @@ for (let food of foods) {
   });
 }
 
+
 show(ingredients, esconder);
 show(prepareList, esconder_one);
 show(prepareMode, esconder_two);
+
+
 
 
 

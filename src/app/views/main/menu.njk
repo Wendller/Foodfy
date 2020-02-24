@@ -14,35 +14,42 @@
         <a href="/menu" id="receitas">Receitas</a>
         <a href="/admin/chefs" id="menu-chefs">Chefs</a>
         <form action="/menu" method="GET">
-          <input type="text" name="filter" placeholder="Filtrar receita">
-          <button type="submit">Filtrar</button>
+          <input type="text" name="filter" class="input-buscar" placeholder="O que você procura?">
+          <button type="submit" class="botao-buscar">Filtrar</button>
         </form>
       </div>
   {% block header %}
 
   {% endblock %}
 
-    <section id="revenue">
+    <h1 class="buscando">Buscando por {{filter}}</h1>
+    
+    <main>
+      <section id="revenue">
 
-      {% for food in foods %}
-      <div class="food-revenue" id="{{ food.id }}">
-        <div class="food-revenue-image">
-          <img src="{{ food.image }}" alt="Imagem {{ food.name }}">
+        {% for food in foods %}
+        <div class="food-revenue" id="{{ food.id }}">
+          <div class="food-revenue-image">
+            <img src="{{ food.image }}" alt="Imagem {{ food.name }}">
+          </div>
+
+          <div class="food-revenue-content">
+            <p class="food-revenue-name" id="{{ food.name }}">{{ food.title }}</p>
+            <p class="food-revenue-chef">{{ food.chef }}</p>
+          </div>
         </div>
+        {% endfor %}
 
-        <div class="food-revenue-content">
-          <p class="food-revenue-name" id="{{ food.name }}">{{ food.title }}</p>
-          <p class="food-revenue-chef">{{ food.chef }}</p>
-        </div>
-      </div>
-      {% endfor %}
+      </section>
 
-    </section>
+      <div class="pagination" data-page={{pagination.page}} data-total={{pagination.total}}></div>
+
+    </main>
 
     <footer class="footer">
       <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="/scripts.js"></script>
 
 {% endblock %}
