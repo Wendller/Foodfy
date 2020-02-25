@@ -29,6 +29,7 @@ body {
 
 .menu-home.mode #foodfy {
   color: #fbdfdb;
+  font-weight: bold;
 }
 
 .menu-home.mode #sobre {
