@@ -16,7 +16,6 @@ module.exports = {
 
     const query = `
       INSERT INTO receipts (
-        image,
         title,
         ingredients,
         preparation,
@@ -28,7 +27,6 @@ module.exports = {
     `
 
     const values = [
-      data.image,
       data.title,
       data.ingredients,
       data.preparation,
