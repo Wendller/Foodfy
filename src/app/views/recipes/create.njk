@@ -23,14 +23,18 @@
       <section class="details"> 
 
         <div class="item">
-          <div>Imagem da receita</div>
-          <div id="photo-space">
-            <div id="photos-upload">
-              <i class="material-icons">add</i>
-              <input type="file" name="photos" id="photos-input" multiple accept="image/*">
+          <div>Imagens da receita</div>
+          <div class="grid">
+            <div id="photo-space">
+              <div id="photos-upload">
+                <i class="material-icons">add</i>
+                <input type="file" name="photos" id="photos-input" multiple accept="image/*" 
+                onchange="PhotosUpload.handleFileInput(event)">
+              </div>
             </div>
             <div id="photos-preview"></div>
           </div>
+          
         </div>
 
         <div class="item">
