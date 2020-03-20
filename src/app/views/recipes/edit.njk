@@ -8,6 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/admin.css">
   </head>
@@ -23,9 +24,16 @@
       <section class="details"> 
 
         <div class="item">
-          <div>Imagem da receita</div>
-          <div>
-            <input type="text" name="image" placeholder="http://" value="{{ dessert.image }}">
+          <div>Imagens da receita</div>
+          <div class="grid">
+            <div id="photo-space">
+              <div id="photos-upload">
+                <i class="material-icons">add</i>
+                <input type="file" name="photos" id="photos-input" multiple accept="image/*" 
+                onchange="PhotosUpload.handleFileInput(event)">
+              </div>
+            </div>
+            <div id="photos-preview"></div>
           </div>
         </div>
 
