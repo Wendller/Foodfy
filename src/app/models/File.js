@@ -37,13 +37,13 @@ module.exports = {
       RETURNING id
     `
       
-    return await db.query(`SELECT id FROM files WHERE name = $1`, [data.filename], function(err, results) {
-                  if (err) throw `Database error! ==> ${err}`
+    return db.query(`SELECT id FROM files WHERE name = $1`, [data.filename], function(err, results) {
+              if (err) throw `Database error! ==> ${err}`
 
-                  return db.query(connectQuery, [recipeId, results.rows[0].id], function(err, results) {
-                    if (err) throw `Database final error! ==> ${err}`
-                  }) ;
-                });
+              return db.query(connectQuery, [recipeId, results.rows[0].id], function(err, results) {
+                if (err) throw `Database final error! ==> ${err}`
+              }) ;
+            });
     
   }
 
