@@ -12,7 +12,7 @@ module.exports = {
     });
 
   },
-  create(data, callback) {
+  create(data) {
 
     const query = `
       INSERT INTO receipts (
@@ -22,7 +22,7 @@ module.exports = {
         information,
         created_at,
         chef_id
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+      ) VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING id
     `
 
@@ -35,11 +35,7 @@ module.exports = {
       data.chef
     ]
 
-    db.query(query, values, function(err, results) {
-      if(err) throw `Database error: ${err}`
-
-      callback(results.rows[0]);
-    });
+    return db.query(query, values)
   },
   find(id, callback) {
     db.query(`SELECT receipts.*, chefs.name AS chef FROM receipts LEFT JOIN chefs ON (chefs.id = receipts.chef_id) WHERE receipts.id = ${id} GROUP BY chefs.name, receipts.id`, function(err, results) {
@@ -48,7 +44,7 @@ module.exports = {
       callback(results.rows[0]);
     });
   },
-  update(data, callback) {
+  update(data) {
     const query = `
       UPDATE receipts SET
         image=($1),
@@ -70,18 +66,10 @@ module.exports = {
       data.id
     ]
 
-    db.query(query, values, function(err, results) {
-      if(err) throw `Database error! ==> ${err}`
-
-      callback()
-    });
+    return db.query(query, values) 
   },
-  delete(id, callback) {
-    db.query(`DELETE FROM receipts WHERE id = $1`, [id], function(err, results) {
-      if(err) throw `Database error! ==> ${err}`
-
-      callback();
-    });
+  delete(id) {
+    return db.query(`DELETE FROM receipts WHERE id = ${id}`) 
   },
   chefsSelectOptions(callback) {
     db.query(`SELECT name, id FROM chefs`, function(err, results) {

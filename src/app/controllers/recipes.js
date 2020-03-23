@@ -1,4 +1,5 @@
-Recipe = require("../models/Recipe");
+const Recipe = require("../models/Recipe");
+const File = require("../models/File");
 
 module.exports = {
 
@@ -16,7 +17,7 @@ module.exports = {
     });
     
   },
-  post(req, res) {
+  async post(req, res) {
     const keys = Object.keys(req.body);
 
     //? Verificando se há conteudo
@@ -26,9 +27,20 @@ module.exports = {
       }
     }
 
-    Recipe.create(req.body, function(recipe) {
-      return res.redirect(`/admin/recipes/${recipe.id}`)
-    });
+    if(req.files.length == 0) {
+      return res.send("Envie pelo menos uma imagem")
+    }
+
+    let results = await Recipe.create(req.body);
+    const recipeId = results.rows[0].id;
+
+    const filesPromise = req.files.map(file => File.create({...file}, recipeId));
+
+    await Promise.all(filesPromise);
+
+
+    return res.redirect(`/admin/recipes/${recipeId}`)
+
   },
   show(req, res) {
 
@@ -48,7 +60,7 @@ module.exports = {
     });
 
   },
-  put(req, res) {
+  async put(req, res) {
     const keys = Object.keys(req.body);
 
     //? Verificando se há conteudo
@@ -58,16 +70,16 @@ module.exports = {
       }
     }
 
-    Recipe.update(req.body, function() {
-      return res.redirect(`/admin/recipes/${req.body.id}`)
-    });
-  },
-  delete(req, res) {
-    
-    Recipe.delete(req.body.id, function() {
-      return res.redirect("/admin/recipes");
-    });
+    await Recipe.update(req.body);
 
+    return res.redirect(`/admin/recipes/${req.body.id}`)
+  
+  },
+  async delete(req, res) {
+    
+    await Recipe.delete(req.body.id);
+
+    return res.redirect("/admin/recipes");
   }
   
 }
