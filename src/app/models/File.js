@@ -1,5 +1,6 @@
 const db = require("../../config/db");
 const { date } = require("../../lib/utils");
+const fs = require("fs");
 
 module.exports = {
 
@@ -45,6 +46,26 @@ module.exports = {
               }) ;
             });
     
+  },
+  async delete(id) {
+
+    try {
+      const result = await db.query(`SELECT * FROM files WHERE id = '${id}'`);
+      const file = result.rows[0];
+
+      fs.unlink(file.path, (err) => {
+        if (err) throw `Delete file error: ${err}`
+
+        db.query(`DELETE FROM recipe_files WHERE file_id = '${id}'`);
+
+        return db.query(`DELETE FROM files WHERE id = '${id}'`);
+      });
+
+      
+    }catch(err) {
+      console.error(err);
+    }
+
   }
 
 }

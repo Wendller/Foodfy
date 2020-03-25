@@ -35,29 +35,24 @@ module.exports = {
       data.chef
     ]
 
-    return db.query(query, values)
+    return db.query(query, values);
   },
-  find(id, callback) {
-    db.query(`SELECT receipts.*, chefs.name AS chef FROM receipts LEFT JOIN chefs ON (chefs.id = receipts.chef_id) WHERE receipts.id = ${id} GROUP BY chefs.name, receipts.id`, function(err, results) {
-      if(err) throw `Database error! ==> ${err}`
+  find(id) {
+    return db.query(`SELECT receipts.*, chefs.name AS chef FROM receipts LEFT JOIN chefs ON (chefs.id = receipts.chef_id) WHERE receipts.id = ${id} GROUP BY chefs.name, receipts.id`)
 
-      callback(results.rows[0]);
-    });
   },
   update(data) {
     const query = `
       UPDATE receipts SET
-        image=($1),
-        title=($2),
-        ingredients=($3),
-        preparation=($4),
-        information=($5),
-        chef_id=($6)
-        WHERE id = $7
+        title=($1),
+        ingredients=($2),
+        preparation=($3),
+        information=($4),
+        chef_id=($5)
+        WHERE id = $6
     `
 
     const values = [
-      data.image,
       data.title,
       data.ingredients,
       data.preparation,
@@ -71,12 +66,12 @@ module.exports = {
   delete(id) {
     return db.query(`DELETE FROM receipts WHERE id = ${id}`) 
   },
-  chefsSelectOptions(callback) {
-    db.query(`SELECT name, id FROM chefs`, function(err, results) {
-      if(err) throw `Database error! ==> ${err}`
-
-      callback(results.rows);
-    });
+  chefsSelectOptions() {
+    return db.query(`SELECT name, id FROM chefs`)
+  },
+  files(fileId) {
+    return db.query(`SELECT files.* FROM files LEFT JOIN recipe_files ON (files.id = recipe_files.file_id) WHERE recipe_files.recipe_id = '${fileId}'`);
   }
+  
 
 }

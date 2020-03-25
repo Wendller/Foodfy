@@ -20,7 +20,6 @@
     </header>
 
     <form class="card-recipe" method="POST" action="/admin/recipes?_method=PUT" enctype="multipart/form-data">
-      <section class="avatar" style="background: url({{ dessert.image }}) no-repeat center / cover"></section>
       <section class="details"> 
 
         <div class="item">
@@ -33,7 +32,17 @@
                 onchange="PhotosUpload.handleFileInput(event)">
               </div>
             </div>
-            <div id="photos-preview"></div>
+            <div id="photos-preview">
+              {% if files %}
+                {% for image in files %}
+                  <div class="photo" id={{image.id}}>
+                    <img src="{{image.src}}">
+                    <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
+                  </div>
+                {% endfor %}
+                <input type="hidden" name="removed_files">
+              {% endif %}
+            </div>
           </div>
         </div>
 

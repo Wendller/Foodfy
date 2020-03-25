@@ -22,7 +22,7 @@ module.exports = {
 
     //? Verificando se há conteudo
     for (key of keys) {
-      if (req.body[key] == "") {
+      if (req.body[key] == "" && key != "information") {
         return res.send("Preencha todo os campos!")
       }
     }
@@ -39,7 +39,7 @@ module.exports = {
     await Promise.all(filesPromise);
 
 
-    return res.redirect(`/admin/recipes/${recipeId}`)
+    return res.redirect(`/admin/recipes/${recipeId}/edit`);
 
   },
   show(req, res) {
@@ -51,13 +51,27 @@ module.exports = {
     });
 
   },
-  edit(req, res) {
-    
-    Recipe.find(req.params.id, function(dessert) {
-      Recipe.chefsSelectOptions(function(chefOptions) {
-        return res.render("recipes/edit", { dessert, chefOptions })
-      });
-    });
+  async edit(req, res) {
+
+    //? get Recipe
+    let results = await Recipe.find(req.params.id);
+    dessert = results.rows[0];
+    dessertId = results.rows[0].id;
+
+    //? get Chefs options
+    results = await Recipe.chefsSelectOptions();
+    chefOptions = results.rows;
+
+    //? get Images
+    results = await Recipe.files(dessertId);
+    let files = results.rows;
+    files = files.map(file => ({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+    }));
+
+
+    return res.render("recipes/edit", { dessert, chefOptions, files });
 
   },
   async put(req, res) {
@@ -65,14 +79,31 @@ module.exports = {
 
     //? Verificando se há conteudo
     for (key of keys) {
-      if (req.body[key] == "") {
+      if (req.body[key] == "" && (key != "removed_files" && key != "information") ) {
         return res.send("Preencha todo os campos!")
       }
     }
 
+    if (req.files.length != 0) {
+      const newFilesPromise = req.files.map(file => 
+        File.create({...file}, req.body.id));
+        
+      await Promise.all(newFilesPromise);
+    }
+
+    if (req.body.removed_files) {
+      const removedFiles = req.body.removed_files.split(",");
+      const lastIndex = removedFiles.length - 1;
+      removedFiles.splice(lastIndex, 1);
+
+      const removedFilesPromise = removedFiles.map(id => File.delete(id));
+
+      await Promise.all(removedFilesPromise);
+    }
+
     await Recipe.update(req.body);
 
-    return res.redirect(`/admin/recipes/${req.body.id}`)
+    return res.redirect(`/admin/recipes/${req.body.id}/edit`)
   
   },
   async delete(req, res) {
