@@ -1,3 +1,18 @@
+const ImageGallery = {
+  highlight: document.querySelector(".gallery .highlight > img"),
+  previews: document.querySelectorAll(".gallery-preview img"),
+  setImage(event) {
+    const { target } = event;
+
+    ImageGallery.previews.forEach(preview => preview.classList.remove("active"));
+    target.classList.add("active");
+
+    ImageGallery.highlight.src = target.src;
+  }
+}
+
+
+
 const buscando = document.querySelector(".buscando")
 const botao = document.querySelector(".botao-buscar")
 const filtre = document.querySelector(".input-buscar")

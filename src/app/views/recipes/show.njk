@@ -1,4 +1,4 @@
-{% extends "recipes/foodtest.njk" %}
+{# {% extends "recipes/foodtest.njk" %}
 
 {% block head %}
   <title>Foodfy - {{ recipe.title }}</title>
@@ -10,4 +10,90 @@
   <div class="editar">
     <a id="editar" href="/admin/recipes/{{ recipe.id }}/edit">Editar receita</a>
   </div>
+{% endblock %} #}
+
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Foodfy - {{ recipe.title }}</title>
+    <link rel="stylesheet" href="/css/foodNew.css">
+{% endblock %}
+
+
+{% block content %}
+
+  
+  <div class="editar">
+    <a id="editar" href="/admin/recipes/{{ recipe.id }}/edit">Editar receita</a>
+  </div>
+
+  <section id="head">
+
+    <div class="gallery">
+      <div class="highlight">
+        <img src="{{files[0].src}}" class="food-photo">    
+      </div>
+      <div class="gallery-preview">
+        {% for image in files %}
+          <img src="{{image.src}}" alt="" 
+            {% if loop.index0 == 0 %}
+            class="active"
+            {% endif %}
+            onclick="ImageGallery.setImage(event)"
+          >
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="food-name-div">
+      {{recipe.title}}
+    </div>
+
+    <h2 class="food-author">{{recipe.chef}}</h2>
+  </section>
+    
+  <section id="body">
+    <div class="ingredientes-head">
+      <h3>Ingredientes</h3>
+      <p>Esconder</p>
+    </div>
+
+    <div class="ingredientes-list">
+      <ul>
+        {% for ingredient in recipe.ingredients %}
+        <li>{{ingredient}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="modopreparo-head">
+      <h3>Modo de preparo</h3>
+      <p>Esconder</p>
+    </div>
+    
+    <div class="modopreparo-list">
+      <ul>
+        {% for rule in recipe.preparation %}
+        <li>{{rule}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="info-head">
+      <h3>Informações adicionais</h3>
+      <p>Esconder</p>
+    </div>
+
+    <div class="info-list">
+      <p>{{recipe.information}}</p>
+    </div>
+
+    <footer class="foooter">
+      <p id="copyright">Todos os direitos reservados, receitas Foodfy</p>
+    </footer>
+
+  </section>
+  
+  <script src="/script.js"></script>
+
 {% endblock %}

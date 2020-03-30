@@ -4,13 +4,9 @@ const fs = require("fs");
 
 module.exports = {
 
-  all(callback) {
+  all() {
 
-    db.query('SELECT receipts.*, chefs.name AS chef FROM receipts LEFT JOIN chefs ON (chefs.id = receipts.chef_id) GROUP BY chefs.name, receipts.id', function(err, results) {
-      if(err) throw `Database error: ${err}`
-
-      callback(results.rows);
-    });
+    return db.query(`SELECT files.*, recipe_files.recipe_id AS recipeId FROM files LEFT JOIN recipe_files ON (files.id = recipe_files.file_id)`);
 
   },
   async create(data, recipeId) {

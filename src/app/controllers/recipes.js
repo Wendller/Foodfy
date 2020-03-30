@@ -3,12 +3,21 @@ const File = require("../models/File");
 
 module.exports = {
 
-  index(req, res) {
+  async index(req, res) {
     
-    Recipe.all(function(receipts) {
-      return res.render("recipes/index", { receipts })
-    });
+    let results =  await Recipe.all();
+    receipts = results.rows;
 
+    results = await File.all();
+    files = results.rows.map(file =>({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+    }));
+
+
+
+    return res.render("recipes/index", { receipts, files })
+    
   },
   create(req, res) {
 
@@ -42,13 +51,21 @@ module.exports = {
     return res.redirect(`/admin/recipes/${recipeId}/edit`);
 
   },
-  show(req, res) {
+  async show(req, res) {
 
-    Recipe.find(req.params.id, function(recipe) {
-      if(!recipe) return res.send("Receita não encontrada!")
+    let results = await Recipe.find(req.params.id);
+    recipe = results.rows[0];
+    recipeId = recipe.id;
+    
+    results = await Recipe.files(recipeId);
 
-      return res.render("recipes/show", { recipe })
-    });
+    files = results.rows.map(file =>({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+    }));
+
+    return res.render("recipes/show", { recipe, files })
+    
 
   },
   async edit(req, res) {

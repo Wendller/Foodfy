@@ -18,12 +18,19 @@
 
       {% for dessert in receipts %}
         <div class="index-item">
-            <img src="{{ dessert.image }}" alt="">
-            <div>
-                <h2>{{ dessert.title }}</h2>
-                <p>por {{ dessert.chef }}</p>
-                <a href="/admin/recipes/{{ dessert.id }}">Visualizar</a>
-            </div>
+              <img 
+                {% for file in files %}
+                  {% if file.recipeid == dessert.id %}
+                    src="{{ file.src }}" alt=""
+                  {% endif %}
+                {% endfor %}
+              >
+                 
+          <div>
+            <h2>{{ dessert.title }}</h2>
+            <p>por {{ dessert.chef }}</p>
+            <a href="/admin/recipes/{{ dessert.id }}">Visualizar</a>
+          </div>
         </div>
       {% endfor %}
 
